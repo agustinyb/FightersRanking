@@ -49,7 +49,15 @@ public class fightersController {
         }
     }
 
-    @GetMapping("/api/v1/findByName/{name}")
+    @GetMapping("/api/v1/findby/{id}")
+    public  String enviarDatosFP(@PathVariable("id") Long id){
+        Optional <fighters> fightersOpt = fightersRepository.findById(id);
+        if(fightersOpt.isPresent()){
+            return fightersOpt.toString();
+        } else return "peleador no encontrado";
+    }
+
+    @GetMapping("/api/v1/findbyname/{name}")
     public ResponseEntity<fighters> findByName(@PathVariable("name") String name) {
         Optional<fighters> fighterOpt = fightersRepository.findByName(name);
         if (fighterOpt.isPresent()) {
@@ -59,14 +67,7 @@ public class fightersController {
         }
     }
 
-    @DeleteMapping("/api/v1/delete/{id}")
-    public ResponseEntity<fighters> deleteById(@PathVariable("id") Long id) {
-        Optional<fighters> fightersOpt = fightersRepository.findById(id);
-        if (fightersOpt.isPresent()) {
-            fightersRepository.deleteById(id);
-            return ResponseEntity.ok(fightersOpt.get());
-        } else return ResponseEntity.notFound().build();
-    }
+
 
     @DeleteMapping("/api/v1/deleteall")
     public ResponseEntity<String> deleteAll() {

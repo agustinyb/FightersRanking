@@ -119,5 +119,21 @@ public class fighters {
     public void setRecord(String record) {
         this.record = record;
     }
+
+    @Override
+    public String toString() {
+        return
+                "\n" + "id=" + id + ",\n" +
+                "firstname=" + name + ",\n" +
+                "lastName=" + lastName + ",\n" +
+                "nickName=" + nickName + ",\n" +
+                "age=" + age + ",\n" +
+                "height=" + height + ",\n" +
+                "yearsOfExperience=" + yearsOfExperience + ",\n" +
+                "fights=" + fights + ",\n" +
+                "championships=" + championships + ",\n" +
+                "record=" + record + ",\n" +
+                "weight=" + weight + ",\n";
+    }
 }
 
