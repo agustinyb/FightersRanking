@@ -18,10 +18,11 @@ public class fighters {
     private int fights;
    private boolean championships;
     private String record;
+    private Integer weight;
 
     public fighters(){}
 
-    public fighters(Long id, String name, String lastName, String nickName, int age, int height, int yearsOfExperience, int fights, boolean championships, String record) {
+    public fighters(Long id, String name, String lastName, String nickName, int age, int height, int yearsOfExperience, int fights, boolean championships, String record,Integer weight) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -32,6 +33,7 @@ public class fighters {
         this.fights = fights;
         this.championships = championships;
         this.record = record;
+        this.weight = weight;
     }
 
     public Long getId() {
@@ -49,6 +51,10 @@ public class fighters {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getWeight() {return weight;}
+
+    public void setWeight(Integer weight) {this.weight = weight;}
 
     public String getLastName() {
         return lastName;
