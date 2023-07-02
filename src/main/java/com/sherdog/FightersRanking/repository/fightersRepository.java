@@ -10,6 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface fightersRepository extends JpaRepository<fighters, Long> {
-@Query(value = "SELECT * FROM fighters WHERE name = :name", nativeQuery = true)
+@Query(value = "SELECT * FROM fighters WHERE lower (name) = lower(:name)", nativeQuery = true)
     Optional<fighters> findByName(@PathVariable("name") String name);
+//StringBuffer nombre = new StringBuffer();
+//nombre.contains(name);
 }
