@@ -49,19 +49,12 @@ public class fightersController {
         }
     }
 
-    @GetMapping("/api/v1/findby/{id}")
-    public  String enviarDatosFP(@PathVariable("id") Long id){
-        Optional <fighters> fightersOpt = fightersRepository.findById(id);
-        if(fightersOpt.isPresent()){
-            return fightersOpt.toString();
-        } else return "peleador no encontrado";
-    }
 
     @GetMapping("/api/v1/findbyname/{name}")
-    public ResponseEntity<fighters> findByName(@PathVariable("name") String name) {
-        Optional<fighters> fighterOpt = fightersRepository.findByName(name);
-        if (fighterOpt.isPresent()) {
-            return ResponseEntity.ok(fighterOpt.get());
+    public ResponseEntity <List<fighters>> findByName(@PathVariable("name") String name) {
+        List<fighters> result = fightersRepository.findByName("%"+name+"%");
+        if (!result.isEmpty()) {
+            return ResponseEntity.ok(result);
         } else {
             return ResponseEntity.notFound().build();
         }

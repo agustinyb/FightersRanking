@@ -1,5 +1,6 @@
-package com.sherdog.FightersRanking;
+package com.sherdog.FightersRanking.services;
 
+import com.sherdog.FightersRanking.variable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,19 +18,18 @@ import java.util.Base64;
 public class ChatGPTClient {
 
                 public String preguntar(String pregunta) {
-
+variable var = new variable();
                         String respuesta= "";
                         try {
 
-                                // Configura el modelo y el punto de acceso de la API
                                 String model = "gpt-3.5-turbo";
                                 URL url = new URL("https://api.openai.com/v1/chat/completions");
-//establecer los encabezados de la solicitud
+
                                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                                 conn.setRequestMethod("POST");
-
+                                //String apiKey ="Bearer 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";
                                 conn.setRequestProperty("Content-Type", "application/json");
-                                conn.setRequestProperty("Authorization", "Bearer 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");
+                                conn.setRequestProperty("Authorization",var.apiKey);
 
                                 conn.setDoOutput(true);
                                 DataOutputStream os = new DataOutputStream(conn.getOutputStream()) ;
@@ -67,7 +67,7 @@ public class ChatGPTClient {
                                 respuesta = response.toString();
                                 // Aquí puedes manejar la respuesta del modelo según tus necesidades
 
-                               // conn.disconnect();
+
                         } catch (Exception e) {
                                 e.printStackTrace();
                         }

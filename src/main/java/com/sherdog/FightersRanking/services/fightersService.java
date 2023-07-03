@@ -20,16 +20,9 @@ public class fightersService {
         this.fightersRepository = fightersRepository;
     }
 
-    public Optional<fighters> findByName (String name){
-        return fightersRepository.findByName(name);
-    }
 
-public  String enviarDatosFP(Long id){
-        Optional <fighters> fightersOpt = fightersRepository.findById(id);
-        if(fightersOpt.isPresent()){
-           return fightersOpt.toString();
-        } else return "peleador no encontrado";
-}
+
+
 
 
 
