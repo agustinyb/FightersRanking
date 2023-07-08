@@ -14,16 +14,5 @@ public class FightersRankingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FightersRankingApplication.class, args);
 	}
-	@Bean
-	public OpenAPI customOpenApi(){
-		return new OpenAPI()
-				.info(new Info()
-						.title("FightersRanking Api")
-						.version("0.1")
-						.description("aplicacion con el ranking de peleadores")
-						.termsOfService("http://swagger.io/terms/")
-						.license(new License().name("apache 2.0").url("http://springdoc.org"))
-				);
 
-	}
 }

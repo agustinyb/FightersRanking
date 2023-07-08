@@ -6,6 +6,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -14,10 +16,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-
+@RestController
 public class ChatGPTClient {
-
-                public String preguntar(String pregunta) {
+        @GetMapping("/api/v1/preguntar")
+                public String preguntar (String pregunta) {
 variable var = new variable();
                         String respuesta= "";
                         try {

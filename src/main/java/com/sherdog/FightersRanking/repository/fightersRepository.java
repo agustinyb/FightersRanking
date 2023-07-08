@@ -10,9 +10,7 @@ import java.util.List;
 
 @Repository
 public interface fightersRepository extends JpaRepository<fighters, Long> {
-@Query(value = "SELECT * FROM fighters WHERE lower (name) LIKE lower(:name)", nativeQuery = true)
-List<fighters> findByName(@PathVariable("name") String name);
+    @Query(value = "SELECT * FROM fighters WHERE lower (name) LIKE lower(:name)", nativeQuery = true)
+    List<fighters> findByName(String name);
 
-//StringBuffer nombre = new StringBuffer();
-//nombre.contains(name);
 }
